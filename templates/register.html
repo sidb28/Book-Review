@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <h2 class="page-header">Register</h2>
+
+  <form class="register" action="{{ url_for('register') }}" method="post">
+      <div class="form-group">
+          <input class="form-control" name="username" placeholder="Username" type="text"/>
+      </div>
+      <div class="form-group">
+          <input class="form-control" name="password" placeholder="Password" type="password"/>
+      </div>
+      <button class="btn btn-success btn-lg" type="submit">Register</button>
+  </form>
+  <h4><a href="{{ url_for('login') }}">Log In</a> if you are an existing user</h4>
+{% endblock %}

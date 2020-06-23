@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  background-color: black;
+  color: white;
+}
+
+@media screen and (max-width: 800px) {
+  .content {
+    padding: 30px;
+    text-align: center;
+  }
+  
+  .form-group input{
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .content {
+    padding: 100px;
+    text-align: center;
+  }
+
+  .form-group input{
+    width: 40%;
+    text-align: center;
+  }
+}
+
+.btn {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.page-header {
+  margin-bottom: 2%;
+}
+
+.card{
+  margin-bottom: 2.5%;
+}
+
+.jumbotron{
+  background: transparent !important;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.list-group-item{
+  margin-bottom: 1%;
+}
+
+input {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#errorMessage {
+  color: #cc0000;
+}

@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h3 class="page-header">Welcome to the Book Review Website!</h3>
+    <form action="{{ url_for('search') }}" method="GET">
+        <div class="form-group">
+            <input class="form-control" type="text" name="book" placeholder="Search by Title, Author or ISBN">
+            <label>Note: Book and Author names are case sensitive</label>
+        </div>
+        <button class="btn btn-primary btn-lg" type="submit">Search</button>
+    </form>
+{% endblock %}

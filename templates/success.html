@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron text-center">
+  <h1 class="display-3">Thank You!</h1>
+  <p class="lead">Your review has been submitted successfully!</p>
+  <i class="checkmark" style="color: #9ABC66; font-size: 100px; line-height: 200px; margin-left:-15px;">✓</i>
+  <hr>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg btn-block" href="{{ url_for('index') }}" role="button">Continue to homepage</a>
+  </p>
+</div>
+
+{% endblock %}

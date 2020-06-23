@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg btn-block">Try Another Search</a>
+  <div class="alert alert-success" role="alert">
+    Showing {{ searchResults|length }} results
+  </div>
+
+  <div class="row">
+    {% for result in searchResults %}
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <div class="card-columns-fluid">
+        <div class="card bg-secondary text-white">
+          <div class="card-body">
+            <h5 class="card-title">{{ result['title'] }}</h5>
+            <p class="card-text">Author: {{ result['author'] }}</p>
+            <p class="card-text">ISBN: {{ result['isbn'] }}</p>
+            <p class="card-text">Year: {{ result['year'] }}</p>
+            <a href="/review/{{ result['id'] }}" class="btn btn-primary">Reviews</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

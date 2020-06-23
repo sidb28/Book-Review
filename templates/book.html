@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<button onclick="goBack()" class="btn btn-primary btn-lg btn-block">Go Back</button>
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>    
+
+<!-- Reviews -->
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-6">{{ book[0][1] }}</h1>
+    <p class="lead">
+      By {{ book[0][2] }}
+      <br>
+      ISBN: {{ book[0][3] }}
+      <br>
+      Published in {{ book[0][4] }}
+      <br>
+      Average rating of {{ book[1]['average_rating'] }} out of 5.0 from {{ book[1]['work_ratings_count'] }} users on Goodreads
+    </p>
+    <h2>Write a review by filling the form below</h2>
+    <form action="/review/{{ book[0][0] }}" method="post">
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Rating [Lowest = 1, Highest = 5]</label>
+          <select required class="form-control" id="ratingSelect" name="rating">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Any thoughts about the book?</label>
+          <textarea required class="form-control" id="description" rows="3" name="description" placeholder="Leave a review here..."></textarea>
+        </div>
+        <button class="btn btn-success" type="submit">Submit</button>
+      </form>
+  </div>
+</div>
+{% if reviews|length == 0 %}
+  <div class="alert alert-danger" role="alert">
+    No reviews available for this book! Please feel free to write one.
+  </div>
+{% else %}
+  {% for review in reviews %}
+    <div class="review-list list-group">
+      <a href="#" class="list-group-item list-group-item-action list-group-item-dark">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{ review['username'] }}</h5>
+        </div>
+        <small>Rated {{ review['rating'] }}/5</small>
+        <p class="mb-1"><em>"{{ review['description'] }}"</em></p>
+      </a>
+    </div>
+  {% endfor %}
+{% endif %}
+
+{% endblock %}

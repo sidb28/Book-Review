@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <button onclick="goBack()" class="btn btn-primary btn-lg btn-block">Go Back</button>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>    
+    <h2>Error!<br><p id="errorMessage">{{ message }}</p></h2>
+{% endblock %}
