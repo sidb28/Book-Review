@@ -102,8 +102,9 @@ def review(book_id):
     if request.method == "GET":
 
         book = db.execute("SELECT * FROM books WHERE id = :book_id", {"book_id":book_id}).fetchall()
+        key = os.getenv("GOODREADS_KEY")
 
-        goodreads_res = requests.get("https://www.goodreads.com/book/review_counts.json", params={"key": "GX1mV1Wp7BKvRsHiCw", "isbns": book[0][3]})
+        goodreads_res = requests.get("https://www.goodreads.com/book/review_counts.json", params={"key":key, "isbns": book[0][3]})
 
         api_data = goodreads_res.json()
         api_data = api_data['books'][0]
